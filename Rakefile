@@ -11,5 +11,5 @@ task :run do
 end
 
 task :test do
-  ruby 'test/cool_program_test.rb'
+  ruby 'test/*_test.rb'
 end
