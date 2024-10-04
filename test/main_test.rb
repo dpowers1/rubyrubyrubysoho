@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
-require_relative '../lib/main.rb'
+require_relative '../lib/main'
 
 class TransactionCalculatorTest < Minitest::Test
   def test_total_by_month_returns_total_for_given_month

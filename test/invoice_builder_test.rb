@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require_relative '../lib/invoice_builder'
 
@@ -24,10 +26,10 @@ class InvoiceBuilderTest < Minitest::Test
       'user1' => { total: 30.990000000000002, transactions: [
         { date: Date.parse('2022-01-01'), amount: '10.99' },
         { date: Date.parse('2022-01-15'), amount: '20.00' }
-      ]},
+      ] },
       'user2' => { total: 30.00, transactions: [
         { date: Date.parse('2022-02-01'), amount: '30.00' }
-      ]}
+      ] }
     }
     assert_equal expected_result, build_invoice_object(transactions)
   end

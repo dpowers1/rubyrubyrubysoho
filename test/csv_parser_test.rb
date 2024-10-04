@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'csv'
 require_relative '../lib/csv_parser'
@@ -18,7 +20,7 @@ class CSVReaderTest < Minitest::Test
   def test_read_csv_returns_data_from_file
     file_name = 'test_file.csv'
     CSV.open(file_name, 'w') do |csv|
-      csv << ['Name', 'Age']
+      csv << %w[Name Age]
       csv << ['John', 25]
       csv << ['Jane', 30]
     end
@@ -33,7 +35,7 @@ class CSVReaderTest < Minitest::Test
   def test_read_csv_skips_blank_lines
     file_name = 'test_file.csv'
     CSV.open(file_name, 'w') do |csv|
-      csv << ['Name', 'Age']
+      csv << %w[Name Age]
       csv << ['John', 25]
       csv << []
       csv << ['Jane', 30]
@@ -49,7 +51,7 @@ class CSVReaderTest < Minitest::Test
   def test_read_csv_converts_headers_to_symbols
     file_name = 'test_file.csv'
     CSV.open(file_name, 'w') do |csv|
-      csv << ['Name', 'Age']
+      csv << %w[Name Age]
       csv << ['John', 25]
     end
     expected_data = [

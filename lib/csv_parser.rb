@@ -1,15 +1,13 @@
+# frozen_string_literal: true
+
 require 'csv'
 
 def read_csv(file_name)
-  if !File.exist?(file_name)
-    raise IOError, "File #{file_name} does not exist"
-  end
+  raise IOError, "File #{file_name} does not exist" unless File.exist?(file_name)
 
-  data = CSV.read(file_name, headers:true, skip_blanks:true, header_converters: :symbol).map(&:to_h)
+  data = CSV.read(file_name, headers: true, skip_blanks: true, header_converters: :symbol).map(&:to_h)
 
-  if (data.empty?)
-    raise IOError, "File #{file_name} does not have data"
-  end
+  raise IOError, "File #{file_name} does not have data" if data.empty?
 
   data
 end

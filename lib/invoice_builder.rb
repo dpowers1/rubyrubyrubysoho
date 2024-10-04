@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def build_invoice_object(transactions)
   transactions_by_user = {}
   transactions.each do |transaction|
