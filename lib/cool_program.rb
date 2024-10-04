@@ -12,4 +12,3 @@ end
 data = read_csv('lib/data/index.csv')
 invoice = build_invoice_object(data)
 kneecaps = total_by_month(invoice.first[1][:transactions], 3).round(2)
-binding.pry

@@ -1,5 +1,4 @@
 require 'csv'
-require 'pry'
 
 def read_csv(file_name)
   if !File.exist?(file_name)
