@@ -1,11 +1,13 @@
-def build_invoice_object(data)
+def build_invoice_object(transactions)
   transactions_by_user = {}
-  data.each do |row|
-    date = Date.strptime(row.fetch(:date), '%Y-%m-%d')
-    amount = row.fetch(:money)
-    user = row.fetch(:card)
-    transactions_by_user[user] ||= []
-    transactions_by_user[user].push({:date => date, :amount => amount})
+  transactions.each do |transaction|
+    date = Date.parse(transaction[:date])
+    amount = transaction[:money]
+    user = transaction[:card]
+
+    transactions_by_user[user] ||= { total: 0.0, transactions: [] }
+    transactions_by_user[user][:total] += amount.to_f
+    transactions_by_user[user][:transactions] << { date: date, amount: amount }
   end
 
   transactions_by_user
