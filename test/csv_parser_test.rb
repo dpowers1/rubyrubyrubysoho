@@ -17,7 +17,7 @@ class CSVReaderTest < Minitest::Test
     File.delete(file_name)
   end
 
-  def test_read_csv_returns_data_from_file
+  def test_read_csv_returns_data_from_file # rubocop:disable Metrics/MethodLength
     file_name = 'test_file.csv'
     CSV.open(file_name, 'w') do |csv|
       csv << %w[Name Age]
@@ -32,7 +32,7 @@ class CSVReaderTest < Minitest::Test
     File.delete(file_name)
   end
 
-  def test_read_csv_skips_blank_lines
+  def test_read_csv_skips_blank_lines # rubocop:disable Metrics/MethodLength
     file_name = 'test_file.csv'
     CSV.open(file_name, 'w') do |csv|
       csv << %w[Name Age]

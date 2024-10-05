@@ -13,5 +13,5 @@ task :run do
 end
 
 task :test do
-  ruby 'test/*_test.rb'
+  Dir['test/*_test.rb'].each { |f| ruby f }
 end
